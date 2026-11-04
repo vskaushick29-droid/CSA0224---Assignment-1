@@ -1,0 +1,9 @@
+Command:
+gcc -Wall -Wextra -Wpedantic -std=c11 -O2 -o task01 task01.c
+
+Compiler:
+GCC 14.2.0 (Debian Linux environment)
+
+Result:
+Compilation succeeded with no warnings or errors.
+Execution exit status: 0

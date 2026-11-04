@@ -1,0 +1,45 @@
+======================================================================
+ TASK 01: PROBLEM ANALYSIS AND DATA IDENTIFICATION
+ Student: Kaushick V S | Register: 1912260163 | Compiler: GCC 14.2.0
+======================================================================
+
+[1] DATA ITEMS AND ACTUAL STORAGE SIZES ON THIS SYSTEM
+  household_id             unsigned long        8 byte(s)
+  category                 char                 1 byte(s)
+  previous_reading         unsigned short       2 byte(s)
+  current_reading          unsigned short       2 byte(s)
+  units_consumed           unsigned int         4 byte(s)
+  money fields             long long (paise)    8 byte(s)
+  unsigned short range: 0 to 65535 (verified from USHRT_MAX)
+  unsigned int range:   0 to 4294967295 (verified from UINT_MAX)
+  unsigned long range:  0 to 18446744073709551615 (verified from ULONG_MAX)
+
+[2] INPUTS, BILLING EXAMPLE, OUTPUTS AND INVARIANTS
+  Inputs: household ID=1001, category=D, previous=1200, current=1530
+  Units consumed: 1530 - 1200 = 330 units
+  Slabs: first 100 free; next 100 at Rs 2.25; above 200 at Rs 4.50
+  Fixed    Rs 50.00
+  Energy   Rs 810.00
+  Total    Rs 860.00
+  Invariant 1 (non-negative charges): PASS
+  Invariant 2 (total = fixed + energy): PASS
+  Overall invariant validation: PASS
+
+[3] INTEGER VERSUS STRING REPRESENTATION
+  Integer reading (unsigned short): 2 byte(s) per reading
+  Text reading "01530": 5 characters; char[8] field = 8 bytes
+  Note: a minimally sized C string needs d+1 bytes; char[8] reserves 8 bytes.
+  strtoul conversion: 1530 - 1200 = 330 units
+  Integer arithmetic: O(1) for fixed-width values.
+  String conversion/comparison: O(d), where d is the number of digits.
+  For 800000 households and 2 readings each:
+    Integer storage: 3200000 bytes (3.05 MiB)
+    char[8] storage: 12800000 bytes (12.21 MiB)
+
+[4] DESIGN CONSIDERATIONS IDENTIFIED
+  Negative readings: reject as invalid input; valid meter values are non-negative.
+  Fractional currency: store money as integer paise to avoid float rounding drift.
+  Large totals: use a 64-bit accumulator (for example, long long) for aggregate revenue.
+  Meter rollover: a 16-bit register wraps after 65535; handle it in Task 2.
+  Tariff constants: centralise slab limits, rates and fixed charge.
+======================================================================
