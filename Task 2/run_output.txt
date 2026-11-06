@@ -1,0 +1,34 @@
+TASK 02: DATA TYPES, LIMITS AND METER ROLLOVER
+==============================================
+Compiler: C11-compatible GCC
+
+[1] TYPE SIZES ON THIS SYSTEM
+sizeof(char)       = 1 byte(s)
+sizeof(short)      = 2 byte(s)
+sizeof(int)        = 4 byte(s)
+sizeof(long)       = 8 byte(s)
+sizeof(long long)  = 8 byte(s)
+sizeof(float)      = 4 byte(s)
+sizeof(double)     = 8 byte(s)
+sizeof(meter_t)    = 2 byte(s)
+UINT16_MAX         = 65535
+INT_MAX            = 2147483647
+LLONG_MAX          = 9223372036854775807
+FLT_DIG            = 6 decimal digits of precision
+DBL_DIG            = 15 decimal digits of precision
+
+[2] METER CONSUMPTION TESTS
+Normal:   1200 -> 1530 = 330 units
+Rollover: 65400 -> 120 = 256 units
+Expected rollover result: (65536 - 65400) + 120 = 256 units
+
+[3] FLOATING-POINT ACCUMULATION VS INTEGER PAISE
+4000 additions of 0.01f rupees = 39.999294281 rupees (float)
+Integer-paise total             = 4000 paise = Rs 40.00
+The integer-paise result is exact; the float result has representation/accumulation error.
+
+[4] DATA TYPE RECOMMENDATIONS
+Meter register: uint16_t (exactly 16 bits when available)
+Household ID:   uint32_t (sufficient for 800,000 IDs)
+Money:          int64_t in paise for safe totals
+Avoid float/double for storing payable money.

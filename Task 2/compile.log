@@ -1,0 +1,6 @@
+Command:
+gcc -Wall -Wextra -std=c11 /mnt/data/Task02_Completed/task02.c -o /mnt/data/Task02_Completed/task02
+
+Result: compilation succeeded. No compiler warnings were emitted.
+
+Note: The executable in this package was built in the current Linux environment. Recompile the .c source on Windows/MSYS2 or the college system if that is your target environment.
