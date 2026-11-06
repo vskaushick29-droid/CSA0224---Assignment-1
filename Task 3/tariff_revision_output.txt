@@ -1,0 +1,24 @@
+Actual recompilation after changing RATE2_PAISE from 225 to 230
+Command: /usr/bin/gcc -Wall -Wextra -std=c11 /mnt/data/Task03_Completed/task03_rate_revision.c -o /mnt/data/Task03_Completed/task03_rate_revision
+
+============================================================
+ TASK 03: DEFINING CONSTANTS IN C
+============================================================
+Tariff macros: slab1=100, slab2=200, rate2=230 paise, rate3=450 paise, fixed=5000 paise
+const example: MAX_METER_UNITS = 65535
+enum example: DOMESTIC = 1, COMMERCIAL = 2
+
+[1] REQUIRED BILLING TEST CASES
+   0 units | Energy: Rs 0.00 | Fixed: Rs 50.00 | Total: Rs 50.00
+ 100 units | Energy: Rs 0.00 | Fixed: Rs 50.00 | Total: Rs 50.00
+ 150 units | Energy: Rs 115.00 | Fixed: Rs 50.00 | Total: Rs 165.00
+ 200 units | Energy: Rs 230.00 | Fixed: Rs 50.00 | Total: Rs 280.00
+ 350 units | Energy: Rs 905.00 | Fixed: Rs 50.00 | Total: Rs 955.00
+
+[2] INVALID INPUT TEST
+  -5 units | INVALID INPUT
+
+[3] TARIFF REVISION TEST
+Change RATE2_PAISE from 225 to 230 and recompile.
+Expected revised totals: 0 units = Rs 50.00; 150 units = Rs 165.00; 200 units = Rs 280.00; 350 units = Rs 955.00.
+============================================================

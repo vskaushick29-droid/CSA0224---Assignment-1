@@ -1,0 +1,1 @@
+Command: /usr/bin/gcc -Wall -Wextra -std=c11 /mnt/data/Task03_Completed/task03.c -o /mnt/data/Task03_Completed/task03
