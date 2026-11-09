@@ -1,0 +1,33 @@
+==================================================
+ TASK 04: USING MACROS SAFELY
+==================================================
+
+[1] SQUARE MACRO PRECEDENCE
+SQUARE(1 + 2)      = 5  (unexpected: expansion lacks parentheses)
+SQUARE_SAFE(1 + 2) = 9  (expected: 9)
+square_function(3) = 9
+square_inline(3)   = 9
+
+[2] DOUBLE EVALUATION IN A MACRO
+MAX_UNSAFE(i++, 4) result = 6, i after call = 7
+The selected argument can be evaluated more than once.
+max_function(i++, 4) result = 5, i after call = 6
+The function evaluates the argument expression once.
+
+[3] MACRO ARGUMENT SIDE-EFFECT WARNING
+MAX_SAFE(i++, 4) result = 6, i after call = 7
+Parentheses fix precedence, but do NOT prevent repeated evaluation.
+Avoid side effects in arguments to function-like macros.
+
+[4] WHEN TO USE WHICH
+- Use #define for simple symbolic constants and conditional compilation.
+- Prefer a function when arguments may have side effects or type checking matters.
+- static inline functions provide function semantics and may be optimized inline.
+
+[5] CODE-SIZE / USAGE COMPARISON
+A macro body is substituted at each of k call sites; this can increase
+generated code size when the expression is large.
+A normal function has one function body plus calls; static inline may
+be inlined by the compiler, so actual size depends on optimization.
+No fixed byte count is portable; inspect compiler output for a given build.
+==================================================
