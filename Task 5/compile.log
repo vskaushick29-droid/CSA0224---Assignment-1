@@ -1,0 +1,32 @@
+Compiler: gcc (Debian 14.2.0-19) 14.2.0
+
+$ gcc -std=c11 -Wall -Wextra -Wpedantic main.c billing.c -o billing
+Return code: 0
+
+$ gcc -std=c11 -Wall -Wextra -Wpedantic -DDEBUG main.c billing.c -o billing_debug
+Return code: 0
+
+Normal execution:
+Units: 0 -> Bill: Rs.50.00
+Units: 100 -> Bill: Rs.50.00
+Units: 150 -> Bill: Rs.162.50
+Units: 200 -> Bill: Rs.275.00
+Units: 350 -> Bill: Rs.950.00
+Units: -5 -> Invalid consumption
+
+Debug execution:
+[DEBUG] Billing program started. Test count = 6
+[DEBUG] Fixed charge = 5000 paise
+[DEBUG] Processing test 1: units = 0
+Units: 0 -> Bill: Rs.50.00
+[DEBUG] Processing test 2: units = 100
+Units: 100 -> Bill: Rs.50.00
+[DEBUG] Processing test 3: units = 150
+Units: 150 -> Bill: Rs.162.50
+[DEBUG] Processing test 4: units = 200
+Units: 200 -> Bill: Rs.275.00
+[DEBUG] Processing test 5: units = 350
+Units: 350 -> Bill: Rs.950.00
+[DEBUG] Processing test 6: units = -5
+Units: -5 -> Invalid consumption
+[DEBUG] Billing program finished.

@@ -1,0 +1,6 @@
+Units: 0 -> Bill: Rs.50.00
+Units: 100 -> Bill: Rs.50.00
+Units: 150 -> Bill: Rs.162.50
+Units: 200 -> Bill: Rs.275.00
+Units: 350 -> Bill: Rs.950.00
+Units: -5 -> Invalid consumption
