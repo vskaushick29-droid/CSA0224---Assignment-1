@@ -1,0 +1,158 @@
+=== Normal slab 1 ===
+Input:
+1000
+1000
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 1000
+Current reading  : 1000
+Units consumed   : 0
+Energy charge    : Rs 0.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 50.00
+Return code: 0
+
+=== Normal slab 2 ===
+Input:
+1000
+1150
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 1000
+Current reading  : 1150
+Units consumed   : 150
+Energy charge    : Rs 112.50
+Fixed charge     : Rs 50.00
+Total bill       : Rs 162.50
+Return code: 0
+
+=== Normal slab 3 ===
+Input:
+1000
+1350
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 1000
+Current reading  : 1350
+Units consumed   : 350
+Energy charge    : Rs 900.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 950.00
+Return code: 0
+
+=== Boundary 100 ===
+Input:
+1000
+1100
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 1000
+Current reading  : 1100
+Units consumed   : 100
+Energy charge    : Rs 0.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 50.00
+Return code: 0
+
+=== Boundary 200 ===
+Input:
+1000
+1200
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 1000
+Current reading  : 1200
+Units consumed   : 200
+Energy charge    : Rs 225.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 275.00
+Return code: 0
+
+=== Zero units ===
+Input:
+5000
+5000
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 5000
+Current reading  : 5000
+Units consumed   : 0
+Energy charge    : Rs 0.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 50.00
+Return code: 0
+
+=== Rollover ===
+Input:
+65400
+120
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): 
+--- Electricity Bill ---
+Previous reading : 65400
+Current reading  : 120
+Units consumed   : 256
+Energy charge    : Rs 477.00
+Fixed charge     : Rs 50.00
+Total bill       : Rs 527.00
+Return code: 0
+
+=== Invalid decrease ===
+Input:
+3000
+2500
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Enter current meter reading (0-65535): Invalid reading sequence: current reading is lower than previous without a valid 16-bit rollover.
+Return code: 1
+
+=== Invalid letters ===
+Input:
+abc
+1200
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Invalid previous reading.
+Return code: 1
+
+=== Invalid negative ===
+Input:
+-10
+1200
+Output:
+Grama Jyothi Rural Electricity Co-operative
+Tariff: first 100 units free; next 100 at Rs 2.25; above 200 at Rs 4.50
+Fixed charge: Rs 50.00
+Enter previous meter reading (0-65535): Invalid previous reading.
+Return code: 1
