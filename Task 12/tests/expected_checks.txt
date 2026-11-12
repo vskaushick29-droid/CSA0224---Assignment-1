@@ -1,0 +1,14 @@
+Task 12 sample test input
+
+0 50000 17:45
+50000 150000 18:00
+150000 160000 22:00
+160000 170000 21:45
+
+Expected qualitative checks:
+- Interval 1 is NORMAL and consumes 50,000 Wh.
+- Interval 2 is PEAK and consumes 100,000 Wh.
+- Interval 3 at exactly 22:00 is NORMAL.
+- Interval 4 at 21:45 is PEAK.
+- Total intervals = 4.
+- Total energy = 170,000 Wh = 170 kWh.

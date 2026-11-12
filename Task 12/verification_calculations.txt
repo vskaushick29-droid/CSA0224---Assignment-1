@@ -1,0 +1,21 @@
+VERIFICATION CALCULATIONS
+
+1) 16-bit Wh capacity
+   2^16 - 1 = 65535 Wh
+   = 65.535 kWh
+
+2) Example days at 10 kWh/day
+   65.535 / 10 = 6.5535 days
+
+3) 15-minute readings per year
+   24 × 4 × 365 = 35,040
+
+4) Worst-case annual sum based on 16-bit maximum interval
+   35,040 × 65,535 = 2,296,346,400 Wh
+
+5) Signed 32-bit maximum
+   2,147,483,647
+   Therefore 2,296,346,400 > 2,147,483,647
+
+6) District reading count
+   800,000 × 35,040 = 28,032,000,000 readings/year

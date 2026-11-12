@@ -1,0 +1,22 @@
+COMMAND: ./task12_smart_meter < tests/sample_input.txt
+RETURN CODE: 0
+
+STDOUT:
+Smart Meter Billing - 15 minute readings
+Peak period: 18:00 to 21:45 (20% surcharge by default)
+Enter previous_wh current_wh HH:MM, one interval per line.
+Press EOF (Ctrl+D on Linux) after the last interval.
+
+Interval 1: 50000 Wh at 17:45 [NORMAL]
+Interval 2: 100000 Wh at 18:00 [PEAK]
+Interval 3: 10000 Wh at 22:00 [NORMAL]
+Interval 4: 10000 Wh at 21:45 [PEAK]
+
+Intervals processed : 4
+Energy consumed     : 170000 Wh (170.000 kWh)
+Fixed charge        : Rs 50.00
+Energy charge       : Rs 432.00
+Total bill          : Rs 482.00
+
+STDERR:
+
