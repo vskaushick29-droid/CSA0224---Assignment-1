@@ -1,0 +1,30 @@
+TASK 10 ANALYSIS
+
+1. Expected bill
+350 units = Rs 950.00 = 95,000 paise.
+
+2. Expected totals
+4,000 bills  = Rs 3,800,000.00 = 380,000,000 paise
+60,000 bills = Rs 57,000,000.00 = 5,700,000,000 paise
+800,000 bills = Rs 760,000,000.00 = 76,000,000,000 paise
+
+3. Float vs paise
+The float representation uses binary floating-point and has limited precision. The program
+measures the difference from the exact integer-paise total at each scale. Double has substantially
+more precision and is expected to match the displayed two-decimal monetary result for these
+scales, but integer paise remains the safer billing representation.
+
+4. Overflow
+The district total of 76,000,000,000 paise is greater than INT_MAX = 2,147,483,647.
+Therefore a signed 32-bit int is insufficient at district scale. A 64-bit long long is sufficient.
+
+5. long
+The size of long is implementation-dependent. On Windows LLP64 it is commonly 4 bytes;
+on Linux LP64 it is commonly 8 bytes. The experiment records the actual environment rather
+than assuming one platform.
+
+6. Double alternative
+double and long long normally occupy 8 bytes on the target system. Both need O(1) storage
+for one accumulator and O(N) total time for N bills. double has a large range and high precision,
+but it does not guarantee exact decimal-money arithmetic. long long paise gives exact integer
+addition for the chosen unit.

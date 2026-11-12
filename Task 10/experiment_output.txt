@@ -1,0 +1,46 @@
+Task 10 - Expectation vs Execution
+Representative bill: 350 units
+
+Type sizes on this system:
+sizeof(int) = 4 bytes, range = -2147483648 .. 2147483647
+sizeof(long) = 8 bytes, range = -9223372036854775808 .. 9223372036854775807
+sizeof(long long) = 8 bytes, range = -9223372036854775808 .. 9223372036854775807
+sizeof(float) = 4 bytes, FLT_DIG = 6
+sizeof(double) = 8 bytes, DBL_DIG = 15
+
+Scale comparison:
+
+4000 bills:
+  long long paise = 380000000 paise (Rs 3800000.00)
+  float rupees    = 3800000.00
+  double rupees   = 3800000.00
+  float difference from paise = 0.0000000000 rupees
+  double difference from paise = 0.0000000000 rupees
+
+60000 bills:
+  long long paise = 5700000000 paise (Rs 57000000.00)
+  float rupees    = 57000000.00
+  double rupees   = 57000000.00
+  float difference from paise = 0.0000000000 rupees
+  double difference from paise = 0.0000000000 rupees
+
+800000 bills:
+  long long paise = 76000000000 paise (Rs 760000000.00)
+  float rupees    = 760000000.00
+  double rupees   = 760000000.00
+  float difference from paise = 0.0000000000 rupees
+  double difference from paise = 0.0000000000 rupees
+
+Overflow boundary for a signed 32-bit int:
+INT_MAX = 2147483647 paise = Rs 21474836.47
+At Rs 950.00 per bill, about 22605 bills reach INT_MAX paise.
+
+District-scale 800,000-bill result:
+  long long paise = 76000000000
+  exceeds INT_MAX? YES
+  exceeds LONG_MAX? NO
+
+Double vs long long:
+double stores approximately 15 decimal digits; long long stores exact integer paise.
+For this district total, double can represent the integer magnitude exactly,
+but long long is preferred for billing because paise arithmetic is exact by construction.
