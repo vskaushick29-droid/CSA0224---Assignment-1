@@ -1,0 +1,14 @@
+Task 11 - Final Design Recommendation Demonstration
+Types: meter_t=unsigned short, money=long long paise
+District-safe money accumulator: long long
+
+  0 units -> Rs 50.00
+100 units -> Rs 50.00
+150 units -> Rs 162.50
+200 units -> Rs 275.00
+350 units -> Rs 950.00
+256 units -> Rs 527.00
+
+Rollover test: 65400 -> 120 = 256 units
+District example: 800000 x Rs 950.00 = 76000000000 paise
+Fits long long: YES

@@ -1,0 +1,2 @@
+gcc -std=c11 -Wall -Wextra -pedantic -O2 -o task11_final_design task11_final_design.c
+./task11_final_design

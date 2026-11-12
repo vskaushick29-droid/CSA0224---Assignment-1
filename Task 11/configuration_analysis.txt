@@ -1,0 +1,23 @@
+ALTERNATIVE CONFIGURATION ANALYSIS
+
+Suppose tariff.conf contains t tariff values.
+
+Compile-time design:
+- tariff revision requires source modification
+- recompilation is required
+- executable redistribution may be required
+- startup tariff read cost is avoided
+- invalid external configuration cannot corrupt the running configuration
+
+Runtime configuration design:
+- startup reads tariff.conf: O(t)
+- stores t values: O(t) space
+- tariff revision can be performed without recompiling
+- program must validate file presence, syntax, ranges and slab ordering
+- operational deployment is easier when tariffs change frequently
+
+Recommendation:
+For this assignment, keep #define constants because the tariff is small and fixed and
+the assignment explicitly evaluates preprocessor features. For a production system with
+frequent regulatory tariff changes, move the tariff structure into a validated runtime
+configuration file.

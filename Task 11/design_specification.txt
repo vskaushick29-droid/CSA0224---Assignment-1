@@ -1,0 +1,41 @@
+TASK 11 – FINAL ENGINEERING SPECIFICATION
+
+A. Data types
+1. meter_t = unsigned short
+   Purpose: 16-bit non-negative meter register.
+2. unsigned int
+   Purpose: units consumed and slab counts.
+3. long long
+   Purpose: money in integer paise and district-scale totals.
+4. size_t
+   Purpose: array sizes/index-related values.
+
+B. Constants
+SLAB1_UNITS = 100
+SLAB2_UNITS = 100
+RATE1_PAISE = 0
+RATE2_PAISE = 225
+RATE3_PAISE = 450
+FIXED_CHARGE_PAISE = 5000
+
+All monetary constants are expressed in paise.
+
+C. Preprocessor strategy
+Use #define for the fixed tariff constants. Keep every tariff value in one section so
+a revision is a single-point source change.
+
+D. Correctness rules
+- Bill total = fixed charge + energy charge.
+- Bill is never negative.
+- Current >= previous means direct subtraction.
+- Current < previous is accepted only for the defined 16-bit rollover pattern.
+- All money arithmetic is integer arithmetic.
+
+E. Scalability
+Task 10's district example produces 76,000,000,000 paise, which exceeds signed 32-bit
+int but fits in signed 64-bit long long. Therefore long long is required for district totals.
+
+F. Limitation
+The design is intentionally based on the current 16-bit register and fixed tariff model.
+Task 12 requires a redesign for smart-meter watt-hour readings and runtime-configurable
+time-of-day tariffs.

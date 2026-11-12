@@ -1,0 +1,16 @@
+TARIFF REVISION SOP
+
+1. Identify the approved tariff change.
+2. Convert all monetary rates to paise.
+3. Edit the single tariff-constant section in the source.
+4. Do not modify billing formulas in multiple locations.
+5. Compile using:
+   gcc -std=c11 -Wall -Wextra -pedantic -O2 -o task11_final_design task11_final_design.c
+6. Confirm zero compiler warnings.
+7. Execute the boundary suite:
+   0, 100, 150, 200, 350 units.
+8. Confirm rollover:
+   65400 -> 120 = 256 units.
+9. Confirm district-scale accumulator remains within long long.
+10. Record the test output.
+11. Only after validation, distribute the updated executable.
