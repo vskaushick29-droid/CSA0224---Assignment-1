@@ -1,0 +1,3 @@
+$ gcc -std=c11 -Wall -Wextra -Wpedantic task07.c -lm -o task07
+Return code: 0
+Warnings/errors: None
