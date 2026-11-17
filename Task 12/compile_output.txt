@@ -1,7 +1,0 @@
-COMMAND: gcc -std=c11 -Wall -Wextra -pedantic src/task12_smart_meter.c -o task12_smart_meter
-RETURN CODE: 0
-
-STDOUT:
-
-STDERR:
-
