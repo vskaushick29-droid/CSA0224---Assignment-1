@@ -1,9 +1,0 @@
-# GCC build
-gcc -std=c11 -Wall -Wextra -pedantic -o task09_billing task09_billing.c
-
-# Run
-./task09_billing
-
-# Windows PowerShell
-gcc -std=c11 -Wall -Wextra -pedantic -o task09_billing.exe task09_billing.c
-.\task09_billing.exe

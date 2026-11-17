@@ -1,7 +1,0 @@
-Command: /usr/bin/gcc -std=c11 -Wall -Wextra -pedantic -o /mnt/data/Task09/task09_billing /mnt/data/Task09/task09_billing.c
-
-STDOUT:
-
-STDERR:
-
-Return code: 0
