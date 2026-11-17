@@ -1,1 +1,0 @@
-See experiment_output.txt for sizeof() and limit evidence captured from the actual GCC environment.
