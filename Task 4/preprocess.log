@@ -1,1 +1,0 @@
-Command: /usr/bin/gcc -E task04.c -o task04_preprocessed.i
